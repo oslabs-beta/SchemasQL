@@ -1,0 +1,1 @@
+self.__RSC_CSS_MANIFEST={"__entry_css__":{"C:\\Users\\bt807\\Desktop\\Codesmith\\SchemasQL\\app\\page":[]}}
