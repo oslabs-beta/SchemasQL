@@ -1,3 +1,5 @@
+// Change this to TS lateer
+
 function Graph () {
     this.nodes = new Map<{tableName: string, primaryKey: string, fKeys: [], attributeNames: [] }, []>()
     // this.nodes = new Map<type, >()

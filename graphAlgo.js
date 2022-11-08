@@ -1,46 +1,58 @@
 function Graph() {
   this.nodes = new Map();
-  // this.nodes = new Map<type, >()
+  this.size = 0;
 }
 
 Graph.prototype.addNode = function (node) {
-  this.nodes.set(node, []);
+  this.nodes.set(node.name, node);
+  ++this.size;
 };
 
-Graph.prototype.addConnection = function (startNode, destinationNode) {
-  if (!this.nodes.has(startNode) || !this.nodes.has(destinationNode)) return;
+Graph.prototype.addConnection = function (
+  startNode,
+  fKeyName,
+  destinationNode
+) {
+  if (!this.nodes.has(startNode.name) || !this.nodes.has(destinationNode.name))
+    return;
 
-  this.nodes[startNode].push(destinationNode);
+  const newEdgesArray = [
+    ...this.nodes.get(startNode.name).edges,
+    { [fKeyName]: destinationNode.name },
+  ];
+
+  this.nodes.set(startNode.name, {
+    ...this.nodes.get(startNode.name),
+    edges: newEdgesArray,
+  });
 };
 
-Graph.prototype.removeConnection = function (startNode, destinationNode) {
-  if (!this.nodes.has(startNode) || !this.nodes.has(destinationNode)) return;
+Graph.prototype.removeConnection = function () {};
 
-  this.nodes[startNode].find((e, i) => )
+Graph.prototype.removeNode = function () {};
 
-};
 
-Graph.prototype.removeNode = function (node) {};
 
+// ######### Test cases
 const node1 = {
   name: 'planets',
   primaryKey: '_id',
-  fKeys: [],
   attributeNames: ['rotation_period', 'orbital_period'],
+  edges: [],
 };
 
 const node2 = {
   name: 'species',
   primaryKey: '_id',
-  fKeys: ['homeworld_id'],
   attributeNames: ['name', 'weight', 'height'],
+  edges: [],
 };
 
 const node3 = {
   name: 'people',
   primaryKey: '_id',
-  fKeys: ['species_id', 'homeworld_id'],
-  attributeNames: ['name', 'occupation'],
+  attributeNames: ['name', 'species_id', 'occupation'],
+  edges: [],
 };
 
 const graph = new Graph();
@@ -49,4 +61,5 @@ graph.addNode(node1);
 graph.addNode(node2);
 graph.addNode(node3);
 
-console.log(graph.nodes);
+graph.addConnection(node3, 'species_id', node2);
+console.log(graph.nodes.get('people'));
