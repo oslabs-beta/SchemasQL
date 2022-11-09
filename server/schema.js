@@ -61,7 +61,7 @@ module.exports = {
     }
 
     type Node {
-      name: String, 
+      id: String, 
       primaryKey: String,
       attributeNames: [ColumnData],
       edges: [Edge]
