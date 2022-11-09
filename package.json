@@ -10,7 +10,8 @@
     "graphql-type-json": "^0.3.2",
     "next": "^13.0.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "reactflow": "^11.2.0"
   },
   "scripts": {
     "dev": "concurrently \"next dev\" \"nodemon server/server.js\"",
