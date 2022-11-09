@@ -30,36 +30,4 @@ Graph.prototype.addConnection = function (
 Graph.prototype.removeConnection = function () {};
 
 Graph.prototype.removeNode = function () {};
-
-
-
-// ######### Test cases
-const node1 = {
-  name: 'planets',
-  primaryKey: '_id',
-  attributeNames: ['rotation_period', 'orbital_period'],
-  edges: [],
-};
-
-const node2 = {
-  name: 'species',
-  primaryKey: '_id',
-  attributeNames: ['name', 'weight', 'height'],
-  edges: [],
-};
-
-const node3 = {
-  name: 'people',
-  primaryKey: '_id',
-  attributeNames: ['name', 'species_id', 'occupation'],
-  edges: [],
-};
-
-const graph = new Graph();
-
-graph.addNode(node1);
-graph.addNode(node2);
-graph.addNode(node3);
-
-graph.addConnection(node3, 'species_id', node2);
-console.log(graph.nodes.get('people'));
+module.exports = Graph;
