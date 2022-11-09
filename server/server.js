@@ -46,7 +46,7 @@ async function startApolloServer() {
   // Modified server startup
   await new Promise(resolve => httpServer.listen({ port: 4000 }, resolve));
 
-  console.log(`🚀 Server ready at http://localhost:4000/`);
+  console.log(`🪶 GraphQL server ready at http://localhost:4000/  🪶`);
 }
 
 startApolloServer();
