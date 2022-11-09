@@ -7,6 +7,7 @@ const Chart = () => {
   return (
     <div className="Chart">
       <p>We would put some cool stuff here</p>
+      <p> asdfasdf sdf</p>
     </div>
   );
 };

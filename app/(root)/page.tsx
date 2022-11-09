@@ -16,6 +16,7 @@ export default function Page() {
   return (
     <div>
       <h1>Welcome to the Root</h1>
+      <input type="text"></input>
       <form>
         <h3>Login here!</h3>
         <>
